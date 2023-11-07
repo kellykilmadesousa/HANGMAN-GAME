@@ -295,15 +295,22 @@ function criarPalavraSecreta(){
 function verificaLetraEscolhida(letra){
     document.getElementById("tecla-" + letra).disabled = true; //para bloquear o click da letra errada
     if(tentativas > 0){
-        mudarStyleLetra("tecla-"+ letra);
+        mudarStyleLetra("tecla-"+ letra, false);
         comparaListas(letra);
         montarPalavraNaTela(); //para mostrar as letras escolhidas na tela
     } 
 }
 
-function mudarStyleLetra(tecla){
-    document.getElementById(tecla).style.background = "#C71585";
-    document.getElementById(tecla).style.color = "#ffffff";
+function mudarStyleLetra(tecla, condicao){
+    if(condicao == false){ 
+        document.getElementById(tecla).style.background = "#C71585";
+        document.getElementById(tecla).style.color = "#ffffff";
+    }
+    else{ //condicao para mudar a cor do botao clicado verdadeiro
+        document.getElementById(tecla).style.background = "#008000";
+        document.getElementById(tecla).style.color = "#ffffff";
+    }
+    
 }
 
 function comparaListas(letra){
@@ -317,6 +324,7 @@ function comparaListas(letra){
         }
     }
     else{
+        mudarStyleLetra("tecla-"+ letra, true);
         for(i = 0; i < palavraSecretaSorteada.length; i++){
             if(palavraSecretaSorteada[i] == letra){
                 listaDinamica[i] = letra;
