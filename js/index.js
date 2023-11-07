@@ -271,14 +271,26 @@ function criarPalavraSecreta(){
 
     for (i = 0; i < palavraSecretaSorteada.length; i++) {
         if(listaDinamica[i] == undefined){
-            listaDinamica[i] = "&nbsp;" //gera um espaço pro html
-            palavraTela.innerHTML = palavraTela.innerHTML + "<div class='letras'>" + listaDinamica[i] + "</div>"
+            if(palavraSecretaSorteada[i] == " "){
+                listaDinamica[i] = " "; 
+                palavraTela.innerHTML = palavraTela.innerHTML + "<div class='letrasEspaco'>" + listaDinamica[i] + "</div>"
+            } else{
+                listaDinamica[i] = "&nbsp;" //gera um espaço pro html
+                palavraTela.innerHTML = palavraTela.innerHTML + "<div class='letras'>" + listaDinamica[i] + "</div>"
+            } 
         }
         else{
-            palavraTela.innerHTML = palavraTela.innerHTML + "<div class='letras'>" + listaDinamica[i] + "</div>"
+            if(palavraSecretaSorteada[i] == " "){
+                listaDinamica[i] = " "; 
+                palavraTela.innerHTML = palavraTela.innerHTML + "<div class='letrasEspaco'>" + listaDinamica[i] + "</div>"
+            } else{
+                palavraTela.innerHTML = palavraTela.innerHTML + "<div class='letras'>" + listaDinamica[i] + "</div>"
+            }
         }
     }
+    console.log(listaDinamica)
 }
+
 
 function verificaLetraEscolhida(letra){
     document.getElementById("tecla-" + letra).disabled = true; //para bloquear o click da letra errada
