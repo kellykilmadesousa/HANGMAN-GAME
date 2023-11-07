@@ -10,7 +10,7 @@ body {
   width: 100vw;
   height: 90vh;
   margin-top: 10px;
-  background-color: goldenrod;
+  background-color: rgb(225, 171, 96);
   font-family: "Ubuntu", sans-serif;
 }
 
@@ -63,6 +63,10 @@ body {
   border: 1px solid dimgray; /*Para tirar a sombra forte do botao, deixando mais suavizado*/
   color: #8b008b;
   font-weight: 700;
+}
+
+.teclas button:disabled{ /*cursor de não habilitado para letra já */
+  cursor: not-allowed;
 }
 
 .teclas button:hover {
